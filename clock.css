@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #262626;
+}
+.clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);        /*mana clock ni centre position lo petadanki i.e, translocate cheydanki ee transform property */
+    width: 200px;
+    height: 200px;
+    border: 15px solid #ff5f5f;
+    border-radius: 50%;
+    background: #fff;
+    background-size: cover;
+    box-shadow: -2px -2px 1px #e23232, inset 0 0 20px rgba(0,0,0, 0.5);
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px);
+    left: 50%;
+    width: 40%;
+    height: 6px;
+    background: #262626;                    /*this part is for hour hand */
+    border-radius: 3px;
+    animation: animate 4s linear infinite;    /* animation ane css property use cheydam valla mana hour hand rotate avtundi */
+    transform-origin: left;                   /* ee property valla mana hour hand position ni set cheyochu */ 
+}
+.clock::after{
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px);
+    left: 50%;
+    width: 30%;
+    height: 6px;
+    background: #262626;                   /*this part is for hour hand */
+    border-radius: 3px;
+    animation: animate 48s linear infinite;
+    transform-origin: left;
+}
+span{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: #ff5f5f;
+    border-radius: 50%;
+    z-index: 1;
+}
+@keyframes animate{                          /* ee line lo animate rasamu kabatti line no:28 and 40 lo animate ani rasamu, suppose keyframes bindu ani ee line lo raste then line no:28 and 40 lo kuda bindu 4s linear infinite ani rayali */       
+    0%{
+        transform: rotate(-90deg);           /* animation ane css property use cheyali ante ee key frames ani mana .css file lo include cheyali */
+    }
+    100%{
+        transform: rotate(270deg);
+    }
+}
